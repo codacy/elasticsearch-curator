@@ -10,7 +10,7 @@ references:
     run:
       name: Define Environment Variable VERSION_NUMBER and ENV at Runtime
       command: |
-        echo export VERSION_NUMBER=$(grep elasticsearch-curator Dockerfile | cut -d \= -f 3) >> $BASH_ENV
+        echo export VERSION_NUMBER=$(grep elasticsearch-curator Dockerfile | grep -v '#' | cut -d \= -f 3) >> $BASH_ENV
         source $BASH_ENV
         echo $VERSION_NUMBER
 
